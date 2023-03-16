@@ -8,19 +8,14 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 #Откроем главную страницу. Передадим в качестве аргумента адрес страницы.
-@given('browser firefox')
-def step(context, text):
-    context.browser = webdriver.Firefox()
+@given('browser "{browser}"')
+def step(context, browser):
+    context.browser = webdriver.chrome()
     context.browser.maximize_window()
 
 @then('website "{url}"')
 def step(context, url):
     context.browser.get(url)
-
-@given('browser chrome')
-def step(context, text):
-    context.browser = webdriver.Chrome()
-    context.browser.maximize_window()
 
 
 
